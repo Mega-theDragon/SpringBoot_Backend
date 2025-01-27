@@ -11,5 +11,4 @@ This project was made to practice creating a Rest API using Spring Boot.
 - Git
 
 ## Author
-Mega the Dragon
-[My GitHub](https://github.com/Mega-theDragon/SpringBoot_Backend)
+Mega the Dragon -> [My GitHub](https://github.com/Mega-theDragon/SpringBoot_Backend)
