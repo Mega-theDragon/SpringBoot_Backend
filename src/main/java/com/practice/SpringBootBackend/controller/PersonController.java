@@ -2,7 +2,6 @@ package com.practice.SpringBootBackend.controller;
 
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,14 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.practice.SpringBootBackend.model.Person;
 import com.practice.SpringBootBackend.service.PersonService;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/people")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class PersonController {
 
-    private PersonService personService;
+    private final PersonService personService;
 
     @GetMapping
     public List<Person> getAllPeople(){
