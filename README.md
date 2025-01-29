@@ -4,6 +4,7 @@ This project was made to practice creating a Rest API using Spring Boot.
 
 ## Features
 - Rest API
+- Spring Security
 
 ## Requirements
 - Java 21
