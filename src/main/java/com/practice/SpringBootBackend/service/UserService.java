@@ -16,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 public class UserService {
     
     private final AuthenticationManager authenticationManager;
+    private final JWTService jwtService;
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -36,7 +37,7 @@ public class UserService {
             return "User not authenticated";
         }
 
-        return "You logged in";
+        return jwtService.generateJWT(user.getUsername());
     }
 
 }
