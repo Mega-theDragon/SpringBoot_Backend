@@ -1,4 +1,4 @@
-package com.practice.SpringBootBackend;
+package com.practice.SpringBootBackend.controller;
 
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.GetMapping;
