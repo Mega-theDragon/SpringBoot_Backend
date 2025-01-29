@@ -1,5 +1,8 @@
 package com.practice.SpringBootBackend.service;
 
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserService {
     
+    private final AuthenticationManager authenticationManager;
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -22,6 +26,17 @@ public class UserService {
         user.setPassword(encodedPassword);
         
         return userRepository.save(user);
+    }
+
+    public String verifyUser(MyUser user){
+        Authentication authentication = authenticationManager
+                .authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+
+        if(!authentication.isAuthenticated()){
+            return "User not authenticated";
+        }
+
+        return "You logged in";
     }
 
 }
